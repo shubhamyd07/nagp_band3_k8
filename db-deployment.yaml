@@ -13,8 +13,10 @@ spec:
         app: database
     spec:
       containers:
-        - image: mysql:latest
+        - image: mysql:5.7
           name: database
+          args:
+            - "--ignore-db-dir=lost+found" 
           env:
             - name: MYSQL_ROOT_PASSWORD
               valueFrom:
